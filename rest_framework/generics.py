@@ -389,6 +389,10 @@ class CreateAPIView(mixins.CreateModelMixin,
     """
     Concrete view for creating a model instance.
     """
+
+    def dispatch(self, *args, **kwargs):
+        return super(CreateAPIView, self).dispatch(*args, **kwargs)
+
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
 
